@@ -1,36 +1,25 @@
 # Node.js Modules
 
-Today I learned how modules work in Node.js. Basically, instead of writing all your code in one huge file, you can split it into smaller files and reuse them wherever needed using require and module.exports.
+Practiced how to split code into separate files and reuse them using require and module.exports.
 
-## How it works
+## Files in this folder
 
-I created a file called math.js which has a simple add function. Instead of keeping this function private to that file, I exported it using module.exports so other files can use it too.
-
-math.js
-
-    const add = (x, y) => {
-        return x + y
-    }
-
-    module.exports = { add }
-
-Then in app.js, I imported that function using require and used it.
-
-app.js
-
-    const total = require("./math")
-    console.log(total.add(10, 20))
-
-Output: 30
+- math.js — exports an add function
+- greeting.js — exports greetMorning and greetEvening functions
+- temperture.js — exports temperature conversion functions
+- app.js — main file, imports and uses all of the above
 
 ## What I understood
 
-require is how you pull in code from another file. You don't need to add .js at the end, Node figures that out automatically.
+require is how you pull in code from another file. No need to add .js at the end, Node adds it automatically.
 
-module.exports is how a file shares its code with the outside world. Whatever you put inside the exports object is what other files get access to when they require it.
+module.exports is how a file shares its code with other files. Whatever you put inside it becomes available wherever that file is required.
 
-If you don't export something, it stays private to that file and can't be used anywhere else.
+Every file being required with "./filename" must sit in the same folder as the file requiring it, otherwise you get a Cannot find module error.
 
-## Why this is useful
+If you don't export something, it stays private to that file.
 
-This makes code much easier to manage. Instead of one massive file with everything in it, you can organize your project into logical pieces, like keeping all math-related functions in one file, and just import them wherever needed.
+## Mistakes I ran into
+
+Tried running app.js from the wrong folder and got Cannot find module errors.
+Forgot that objects exported with multiple functions need to be called like object.functionName(), not just as a single function.
