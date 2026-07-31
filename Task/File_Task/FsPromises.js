@@ -22,7 +22,7 @@ const data = "This is new data writing using promises.then().catch"
 //? data: Content written to the file — overwrites existing content.
 //*───────────────────────────────────────────*
 // fs.writeFile(PathName, data).
-// then((data)=>{console.log("Data Write in file Successfully")}).
+// then(console.log("Data Write in file Successfully").
 // catch((err)=>{console.log("Error: ",err)})
 
 //Read Data from file using promises
@@ -48,9 +48,9 @@ const updateData = "This is the Update data write\n"
 //? data: Content added to the end of the file — existing content is kept, not overwritten.
 //*───────────────────────────────────────────*
 fs.appendFile(PathName,updateData)
-.then((updateData)=>{
+.then(
 console.log("Write Update data succussfully")
-})
+)
 .catch((err)=>{
     console.log("Error: ",err)
 })
