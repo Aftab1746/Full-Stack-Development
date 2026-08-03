@@ -40,3 +40,22 @@ fs.writeFile(filePath,data)
 fs.readFile(filePath,"utf-8")
 .then((data)=>console.log(data))
 .catch((err)=>console.log("Error: ",err))
+
+//! fs.rename(oldPath, newPath)
+//? oldPath  -> full path of the file to rename
+//? newPath  -> full path of the new file name      
+//*─────────────────────────────────────────────*//
+// const newFileName = "fsPromisesRenamed.txt"
+// const newFilePath = path.join(__dirname,newFileName)     
+// fs.rename(filePath,newFilePath)
+// .then(()=>console.log("File Renamed Successfully."))
+// .catch((err)=>console.log("Error: ",err))
+
+
+//fs.readdir(path)
+//? path  -> full path of the directory to read
+//*─────────────────────────────────────────────*// 
+const dirPath = __dirname
+fs.readdir(dirPath)
+.then((files)=>console.log(files))
+.catch((err)=>console.log("Error: ",err))
