@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
+require('dotenv').config();
 const fs = require("fs")
 const path = require("path")
 const fileName = "TASKS_DATA.json"
 const filePath = path.join(__dirname,fileName)
 const tasks = require("./TASKS_DATA.json")
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 
 //Middleware 
 app.use(express.urlencoded({extended: true }))
